@@ -1,7 +1,7 @@
 FROM 1and1internet/ubuntu-16-apache
 MAINTAINER brian.wojtczak@1and1.co.uk
 ARG DEBIAN_FRONTEND=noninteractive
-COPY files /
+COPY . /app
 RUN \
     apt-get update && \
     apt-get install -y software-properties-common python-software-properties && \

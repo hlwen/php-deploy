@@ -1,15 +1,19 @@
 #!/bin/bash
 chown www-data:www-data /app -R
 
-mv /app/data/conf/database.php.back /app/data/conf/database.php
+#mv /app/data/conf/database.php.back /app/data/conf/database.php
 
-
-if [ "$ALLOW_OVERRIDE" = "**False**" ]; then
-    unset ALLOW_OVERRIDE
-else
-    sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf
-    a2enmod rewrite
+#如果文件夹不存在，创建文件夹
+if [ ! -d "/app/waihui" ]; then
+  cd /app && git clone $WAIHUI
 fi
-source /etc/apache2/envvars
-tail -F /var/log/apache2/* &
+
+#if [ "$ALLOW_OVERRIDE" = "**False**" ]; then
+#    unset ALLOW_OVERRIDE
+#else
+#    sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf
+#    a2enmod rewrite
+#fi
+#source /etc/apache2/envvars
+#tail -F /var/log/apache2/* &
 exec apache2 -D FOREGROUND
