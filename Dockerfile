@@ -7,4 +7,4 @@ ADD . /app
 EXPOSE 80
 WORKDIR /app
 
-CMD ["/app/run.sh"]
+ENTRYPOINT ["sh","/app/run.sh"]
