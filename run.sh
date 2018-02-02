@@ -5,7 +5,7 @@ chown www-data:www-data /app -R
 
 #如果文件夹不存在，创建文件夹
 if [ ! -d "/app/waihui" ]; then
-  cd /app && git clone $WAIHUI
+ # cd /app && git clone $WAIHUI
 fi
 
 #if [ "$ALLOW_OVERRIDE" = "**False**" ]; then
