@@ -4,9 +4,10 @@ chown www-data:www-data /var/www/html -R
 #mv /app/data/conf/database.php.back /app/data/conf/database.php
 #如果文件夹不存在，创建文件夹
 if [ ! -d "/var/www/html/waihui" ]; then
-  cd /var/www/html && git clone $WAIHUI && cd waihui && git pull
+  cd /var/www/html && git clone $WAIHUI && cd waihui && git pull && composer update
 else
-  cd /var/www/html/waihui && cd waihui && git pull
+  cd /var/www/html/waihui && cd waihui && git pull && composer install
+  
 fi
  
 cp /var/www/html/waihui/.env.production /var/www/html/waihui/.evn
