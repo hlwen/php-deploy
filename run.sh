@@ -21,4 +21,5 @@ cp /app/waihui/waihui.conf /etc/apache2/sites-enabled/
 #fi
 #source /etc/apache2/envvars
 #tail -F /var/log/apache2/* &
+
 exec /etc/init.d/apache2 restart
