@@ -8,4 +8,4 @@ COPY run.sh /
 
 ADD . /app
 
-ENTRYPOINT ["sh","/run.sh"]
+CMD ["/run.sh"]
