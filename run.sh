@@ -9,7 +9,7 @@ else
   cd /var/www/html/waihui && git branch --set-upstream-to=origin/ master && cd waihui && git pull
 fi
  
-cp /var/www/html/waihui/.env.production /app/waihui/.evn
+cp /var/www/html/waihui/.env.production /var/www/html/waihui/.evn
 cp /var/www/html/waihui/waihui.conf /etc/apache2/sites-available/
 cp /var/www/html/waihui/waihui.conf /etc/apache2/sites-enabled/ 
 
