@@ -4,9 +4,9 @@ chown www-data:www-data /app -R
 #mv /app/data/conf/database.php.back /app/data/conf/database.php
 #如果文件夹不存在，创建文件夹
 if [ ! -d "/app/waihui" ]; then
-  cd /app && git clone $WAIHUI
+  cd /app && git clone $WAIHUI && git pull
 else
-  cd /app/waihui && git pull
+  cd /app/waihui && git branch --set-upstream-to=origin/ master && git pull
 fi
  
 cp /app/waihui/.env.production /app/waihui/.evn
@@ -24,4 +24,4 @@ cp /app/waihui/waihui.conf /etc/apache2/sites-enabled/
 
 #exec /etc/init.d/apache2 reload
 #exec /etc/init.d/apache2 -D FOREGROUND
-exec apache2 -D FOREGROUND
+exec apache2-foreground
