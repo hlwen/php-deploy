@@ -1,7 +1,18 @@
-FROM 1and1internet/ubuntu-16-apache-php-7.0
+FROM php:7.0-apache
 
 RUN apt-get update && apt-get -y install git vim 
 
+apt-get update && \
+    apt-get install -y software-properties-common python-software-properties && \
+    add-apt-repository -y  ppa:ondrej/php && \
+    apt-get update && \
+    apt-get install -y imagemagick graphicsmagick
+
+RUN apt-get -y install php7.0-gd
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+RUN composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf 
 
