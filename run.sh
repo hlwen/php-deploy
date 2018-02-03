@@ -1,19 +1,19 @@
 #!/bin/bash
 
-chown www-data:www-data /var/www/html -R
+chown www-data:www-data /app -R
 #mv /app/data/conf/database.php.back /app/data/conf/database.php
 #如果文件夹不存在，创建文件夹
-if [ ! -d "/var/www/html/waihui" ]; then
-  cd /var/www/html && git clone $WAIHUI && cd waihui && git pull && composer update
+if [ ! -d "/app/waihui" ]; then
+  cd /app && git clone $WAIHUI && cd waihui && git pull && composer update
 else
-  cd /var/www/html/waihui && cd waihui && git pull && composer install
+  cd /app/waihui && cd waihui && git pull && composer install
   
 fi
  
-cp /var/www/html/waihui/.env.production /var/www/html/waihui/.evn
-cp /var/www/html/waihui/waihui.conf /etc/apache2/sites-available/
-cp /var/www/html/waihui/waihui.conf /etc/apache2/sites-enabled/ 
-cp /var/www/html/waihui/waihui.conf /etc/apache2/conf-enabled/ 
+cp /app/waihui/.env.production /app/waihui/.evn
+cp /app/waihui/waihui.conf /etc/apache2/sites-available/
+cp /app/waihui/waihui.conf /etc/apache2/sites-enabled/ 
+cp /app/waihui/waihui.conf /etc/apache2/conf-enabled/ 
 
 
 if [ "$ALLOW_OVERRIDE" = "**False**" ]; then
