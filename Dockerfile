@@ -8,7 +8,9 @@ RUN apt-get install -y software-properties-common
 
 RUN add-apt-repository ppa:ondrej/php 
 
-RUN apt-get update && apt-get install -y php7.0-gd
+RUN apt-get update 
+
+RUN apt-get install php7.0-gd
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
