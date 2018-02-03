@@ -6,7 +6,7 @@ chown www-data:www-data /app -R
 if [ ! -d "/app/waihui" ]; then
   cd /app && git clone $WAIHUI && cd waihui && git pull && composer update
 else
-  cd /app/waihui && cd waihui && git pull && composer install
+  cd /app/waihui && git pull && composer install
   
 fi
  
