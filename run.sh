@@ -26,5 +26,5 @@ fi
 #tail -F /var/log/apache2/* &
 
 #exec /etc/init.d/apache2 reload
-#exec /etc/init.d/apache2 -D FOREGROUND
-exec apache2-foreground
+exec /etc/init.d/apache2 -D FOREGROUND
+#exec apache2-foreground
