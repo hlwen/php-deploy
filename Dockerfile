@@ -2,7 +2,7 @@ FROM php:7.0-apache
 
 RUN apt-get update && apt-get -y install git vim 
 
-apt-get update && \
+RUN apt-get update && \
     apt-get install -y software-properties-common python-software-properties && \
     add-apt-repository -y  ppa:ondrej/php && \
     apt-get update && \
