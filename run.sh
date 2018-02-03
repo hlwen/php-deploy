@@ -1,19 +1,19 @@
 #!/bin/bash
 
-
+chown www-data:www-data /var/www/html -R
 #mv /app/data/conf/database.php.back /app/data/conf/database.php
 #如果文件夹不存在，创建文件夹
-if [ ! -d "/app/waihui" ]; then
-  cd /app && git clone $WAIHUI && cd waihui && git pull
+if [ ! -d "/var/www/html/waihui" ]; then
+  cd /var/www/html && git clone $WAIHUI && cd waihui && git pull
 else
-  cd /app/waihui && git branch --set-upstream-to=origin/ master && cd waihui && git pull
+  cd /var/www/html/waihui && git branch --set-upstream-to=origin/ master && cd waihui && git pull
 fi
  
-cp /app/waihui/.env.production /app/waihui/.evn
-cp /app/waihui/waihui.conf /etc/apache2/sites-available/
-cp /app/waihui/waihui.conf /etc/apache2/sites-enabled/ 
+cp /var/www/html/waihui/.env.production /app/waihui/.evn
+cp /var/www/html/waihui/waihui.conf /etc/apache2/sites-available/
+cp /var/www/html/waihui/waihui.conf /etc/apache2/sites-enabled/ 
 
-chown www-data:www-data /app -R
+
 #if [ "$ALLOW_OVERRIDE" = "**False**" ]; then
 #    unset ALLOW_OVERRIDE
 #else
