@@ -19,6 +19,7 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 ENV ALLOW_OVERRIDE **False**
 
+COPY /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/
 COPY run.sh /
 RUN chmod 755 /*.sh
 
