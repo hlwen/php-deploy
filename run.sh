@@ -17,8 +17,7 @@ cp /var/www/html/waihui/waihui.conf /etc/apache2/conf-enabled/
 chmod –R 777 /var/www/html/waihui/storage/* 
 chmod –R 777 /var/www/html/waihui/public/* 
 
-cd /etc/apache2/mods-enabled
-ln -s ../mods-avaiable/rewrite.load  rewrite.load
+cp /etc/apache2/mods-avaiable/rewrite.load /etc/apache2/mods-enabled
 
 
 sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf
