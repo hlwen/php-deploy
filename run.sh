@@ -6,7 +6,7 @@ chown www-data:www-data /app -R
 if [ ! -d "/app/waihui" ]; then
   cd /app && git clone $WAIHUI
 else
-  cd /app/waihui && git reset -–hard && git pulll
+  cd /app/waihui && git pulll
 fi
  
 cp /app/waihui/.env.production /app/waihui/.evn
