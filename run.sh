@@ -14,13 +14,15 @@ cp /var/www/html/waihui/waihui.conf /etc/apache2/sites-available/
 cp /var/www/html/waihui/waihui.conf /etc/apache2/sites-enabled/ 
 cp /var/www/html/waihui/waihui.conf /etc/apache2/conf-enabled/ 
 
+chmod –R 777 /var/www/html/waihui/storage/* 
+chmod –R 777 /var/www/html/waihui/public/* 
 
-if [ "$ALLOW_OVERRIDE" = "**False**" ]; then
-    unset ALLOW_OVERRIDE
-else
-    sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf
-    a2enmod rewrite
-fi
+cd /etc/apache2/mods-enable
+ln -s ../mods-avaiable/rewrite.load  rewrite.load
+
+
+sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf
+
 #source /etc/apache2/envvars
 #tail -F /var/log/apache2/* &
 
