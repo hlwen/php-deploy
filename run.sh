@@ -17,7 +17,7 @@ cp /var/www/html/waihui/waihui.conf /etc/apache2/conf-enabled/
 chmod –R 777 /var/www/html/waihui/storage/* 
 chmod –R 777 /var/www/html/waihui/public/* 
 
-cd /etc/apache2/mods-enable
+cd /etc/apache2/mods-enabled
 ln -s ../mods-avaiable/rewrite.load  rewrite.load
 
 
