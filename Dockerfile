@@ -1,7 +1,7 @@
-FROM php:7.0-apache
+FROM php:7.1-apache
 
 RUN apt-get update && apt-get -y install git vim
-
+COPY run.sh /
 ADD . /app
 
-ENTRYPOINT ["sh","/app/run.sh"]
+ENTRYPOINT ["sh","/run.sh"]
