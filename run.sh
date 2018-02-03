@@ -6,7 +6,7 @@ chown www-data:www-data /app -R
 if [ ! -d "/app/waihui" ]; then
   cd /app && git clone $WAIHUI
 else
-  cd /app/waihui && git reset -–hard && git pulll
+  cd /app/waihui && git reset HEAD^ && git pulll
 fi
  
 cp /app/waihui/.env.production /app/waihui/.evn
@@ -21,4 +21,5 @@ cp /app/waihui/waihui.conf /etc/apache2/sites-enabled/
 #fi
 #source /etc/apache2/envvars
 #tail -F /var/log/apache2/* &
+
 exec /etc/init.d/apache2 restart
