@@ -6,7 +6,7 @@ chown www-data:www-data /var/www/html -R
 if [ ! -d "/var/www/html/waihui" ]; then
   cd /var/www/html && git clone $WAIHUI && cd waihui && git pull && composer install
 else
-  cd /var/www/html/waihui && git pull && cd waihui && git pull && composer install
+  cd /var/www/html/waihui && git pull && composer install
 fi
  
 cp /var/www/html/waihui/.env.production /var/www/html/waihui/.evn
