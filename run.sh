@@ -4,19 +4,19 @@ chown www-data:www-data /var/www/html -R
 #mv /app/data/conf/database.php.back /app/data/conf/database.php
 cp /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/
 #如果文件夹不存在，创建文件夹
-if [ ! -d "/var/www/html/waihui" ]; then
-  cd /var/www/html && git clone $WAIHUI && cd waihui && git pull && composer install
+if [ ! -d "/var/www/html/$DIRNAME" ]; then
+  cd /var/www/html && git clone $WAIHUI && cd waihui && git pull
 else
-  cd /var/www/html/waihui && git pull && composer install
+  cd /var/www/html/$DIRNAME && git pull
 fi
  
-cp /var/www/html/waihui/.env.production /var/www/html/waihui/.evn
-cp /var/www/html/waihui/waihui.conf /etc/apache2/sites-available/
-cp /var/www/html/waihui/waihui.conf /etc/apache2/sites-enabled/ 
-cp /var/www/html/waihui/waihui.conf /etc/apache2/conf-enabled/ 
+cp /var/www/html/$DIRNAME/.env.production /var/www/html/$DIRNAME/.evn
+cp /var/www/html/$DIRNAME/$DIRNAME.conf /etc/apache2/sites-available/
+cp /var/www/html/$DIRNAME/$DIRNAME.conf /etc/apache2/sites-enabled/
+cp /var/www/html/$DIRNAME/$DIRNAME.conf /etc/apache2/conf-enabled/
 
-chmod –R 777 /var/www/html/waihui/storage/* 
-chmod –R 777 /var/www/html/waihui/public/* 
+chmod –R 777 /var/www/html/$DIRNAME/storage/*
+chmod –R 777 /var/www/html/$DIRNAME/public/*
 
 
 
