@@ -7,7 +7,7 @@ cp /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/
 if [ ! -d "/var/www/html/"$DIRNAME ]; then
   cd /var/www/html && git clone $WAIHUI && cd $WAIHUI
 
-        if [ 0"$BRANCH" = "0" ]; then
+        if [ $BRANCH ]; then
            git checkout -b $BRANCH origin/$BRANCH && git pull
         else
            git reset --hard && git pull
