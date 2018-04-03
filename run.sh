@@ -9,12 +9,18 @@ if [ ! -d "/var/www/html/"$DIRNAME ]; then
 
         if [ $BRANCH ]; then
            git checkout -b $BRANCH origin/$BRANCH && git pull
+           echo "checkout"$BRANCH
         else
-           git reset --hard && git pull
+           git reset --hard && git pull echo
+
+          echo  "reset --hard"
+
         fi
 
 else
   cd /var/www/html/$DIRNAME && git pull
+
+  echo  "pull"
 fi
 
 sh run.sh
