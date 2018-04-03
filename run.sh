@@ -25,7 +25,6 @@ cp /var/www/html/$DIRNAME/$DIRNAME.conf /etc/apache2/conf-enabled/
 
 
 
-
 sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf
 
 #source /etc/apache2/envvars
